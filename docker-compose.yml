@@ -1,0 +1,10 @@
+bootstrap:
+  build: .
+  # environment:
+  #   PW:
+  #   USER_NAME:
+  #   EMAIL:
+  ports:
+    - 10000:8080
+  volumes:
+    - /PATH/TO:/usr/local/node/project
