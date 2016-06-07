@@ -14,13 +14,17 @@ module.exports = {
         path: PATHS.dist,
         filename: 'app.min.js',
     },
-    devServer: {
-          contentBase: PATHS.dist,
-    },
     resolve: {
         root: path.resolve(__dirname),
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader'
+            },
+        ],
         loaders: [
          {
            test: /.jsx?$/,

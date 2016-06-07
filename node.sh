@@ -32,10 +32,9 @@ if [ "$(ls -A ./)" ]; then
 
 else
 
-  cp ../config.js ./
   cp ../gulpfile.js ./
-  cp ../package.json ./
   cp ../webpack.config.js ./
+  cp ../package.json ./
 
   mkdir dist
   cp ../index.html ./dist/
@@ -49,4 +48,4 @@ else
   npm install
 fi
 
-npm start
+webpack-dev-server --config webpack.config.js --host 0.0.0.0 --port 8080 --inline --hot --history-api-fallback --watch-poll 1000   --content-base ./dist
