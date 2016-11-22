@@ -1,14 +1,14 @@
 {
-  "name": "Bootstrap",
-  "version": "1.0.0",
-  "description": "No description yet",
+  "name": "Project name",
+  "version": "0.1",
+  "description": "Enter a meaningful description here.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/",
     "start": "gulp"
   },
-  "author": "Georges Alkhouri",
-  "license": "",
+  "author": "Enter your author name here.",
+  "license": "Choose a free license for your project.",
   "dependencies": {
     "immutable": "^3.8.1",
     "material-ui": "^0.14.4",
