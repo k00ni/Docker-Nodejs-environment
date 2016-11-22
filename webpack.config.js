@@ -17,12 +17,6 @@ module.exports = {
     resolve: {
         root: path.resolve(__dirname),
     },
-    node: {
-        fs: 'empty'
-    },
-    externals: {
-        sqlite3: 'sqlite3'
-    },
     module: {
         preLoaders: [
             {
