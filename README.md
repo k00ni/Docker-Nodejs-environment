@@ -1,4 +1,20 @@
-# Build and run
+# Getting started
+
+## Pull and run
+
+You can pull from Docker hub and get this going with only a few steps. 
+
+Pull it:
+
+    docker pull aksw/nodejs-npm-ecma6-stack
+    
+To start the environment, execute:
+
+    docker run -v /path/to/local/project/folder:/usr/local/node/project -p 8080:8080 node-npm-ecma6-stack
+    
+An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
+
+## Build and run yourself
 
 To build this container execute:
 
