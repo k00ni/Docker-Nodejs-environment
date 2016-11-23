@@ -1,19 +1,14 @@
 #!/bin/sh
 
-# if ! [ -z "$PW" ] && ! [ -z "$USER_NAME" ] && ! [ -z "$EMAIL" ]; then
-#
-#   echo "###################################################"
-#   echo "# Found eccenca credentials! Created .npmrc file. #"
-#   echo "###################################################"
-#
-#   touch $HOME_DIR/.npmrc
-#
-#   echo "registry=https://artifactory.eccenca.com/api/npm/npm/" >> $HOME_DIR/.npmrc
-#   echo "//artifactory.eccenca.com/api/npm/npm/:_password=$PW" >> $HOME_DIR/.npmrc
-#   echo "//artifactory.eccenca.com/api/npm/npm/:username=$USER_NAME" >> $HOME_DIR/.npmrc
-#   echo "//artifactory.eccenca.com/api/npm/npm/:email=$EMAIL" >> $HOME_DIR/.npmrc
-#   echo "//artifactory.eccenca.com/api/npm/npm/:always-auth=true" >> $HOME_DIR/.npmrc
-# fi
+if [ -f $CONFIG_DIR/.npmrc ]; then
+
+  echo "######################"
+  echo "# Found .npmrc file. #"
+  echo "######################"
+
+  cp $CONFIG_DIR/.npmrc $HOME
+  
+fi
 
 cd $APP_DIR
 

@@ -7,4 +7,5 @@ bootstrap:
   ports:
     - 8080:8080
   volumes:
-    - path/to/folder:/app
+    - /path/to/folder:/app
+    - /path/to/.npmrc:/config

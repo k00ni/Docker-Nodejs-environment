@@ -8,12 +8,14 @@ RUN apt-get install -y nano
 ENV TERM xterm
 
 ENV APP_DIR /app
+ENV CONFIG_DIR /config
 
 ENV PW ""
 ENV USER_NAME ""
 ENV EMAIL ""
 
 VOLUME $APP_DIR
+VOLUME $CONFIG_DIR
 
 COPY node.sh node.sh
 
