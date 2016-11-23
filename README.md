@@ -6,11 +6,11 @@ You can pull from Docker hub and get this going with only a few steps.
 
 Pull it:
 
-    docker pull aksw/nodejs-npm-ecma6-stack
+    docker pull k00ni/docker-nodejs-environment
     
 To start the environment, execute:
 
-    docker run -v /path/to/local/project/folder:/usr/local/node/project -p 8080:8080 node-npm-ecma6-stack
+    docker run -v /path/to/local/project/folder:/usr/local/node/project -p 8080:8080 k00ni/docker-nodejs-environment
     
 An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
 
@@ -18,11 +18,11 @@ An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `
 
 To build this container execute:
 
-    docker build -t node-npm-ecma6-stack .
+    docker build -t docker-nodejs-environment .
 
 and run with a mounted **empty** folder to start a new project:
 
-    docker run -v $PWD/your-project:/usr/local/node/project -p 8080:8080 node-npm-ecma6-stack
+    docker run -v $PWD/your-project:/usr/local/node/project -p 8080:8080 docker-nodejs-environment
 
 An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
 
