@@ -1,21 +1,21 @@
 #!/bin/sh
 
-if ! [ -z "$PW" ] && ! [ -z "$USER_NAME" ] && ! [ -z "$EMAIL" ]; then
+# if ! [ -z "$PW" ] && ! [ -z "$USER_NAME" ] && ! [ -z "$EMAIL" ]; then
+#
+#   echo "###################################################"
+#   echo "# Found eccenca credentials! Created .npmrc file. #"
+#   echo "###################################################"
+#
+#   touch $HOME_DIR/.npmrc
+#
+#   echo "registry=https://artifactory.eccenca.com/api/npm/npm/" >> $HOME_DIR/.npmrc
+#   echo "//artifactory.eccenca.com/api/npm/npm/:_password=$PW" >> $HOME_DIR/.npmrc
+#   echo "//artifactory.eccenca.com/api/npm/npm/:username=$USER_NAME" >> $HOME_DIR/.npmrc
+#   echo "//artifactory.eccenca.com/api/npm/npm/:email=$EMAIL" >> $HOME_DIR/.npmrc
+#   echo "//artifactory.eccenca.com/api/npm/npm/:always-auth=true" >> $HOME_DIR/.npmrc
+# fi
 
-  echo "###################################################"
-  echo "# Found eccenca credentials! Created .npmrc file. #"
-  echo "###################################################"
-
-  touch $HOME_DIR/.npmrc
-
-  echo "registry=https://artifactory.eccenca.com/api/npm/npm/" >> $HOME_DIR/.npmrc
-  echo "//artifactory.eccenca.com/api/npm/npm/:_password=$PW" >> $HOME_DIR/.npmrc
-  echo "//artifactory.eccenca.com/api/npm/npm/:username=$USER_NAME" >> $HOME_DIR/.npmrc
-  echo "//artifactory.eccenca.com/api/npm/npm/:email=$EMAIL" >> $HOME_DIR/.npmrc
-  echo "//artifactory.eccenca.com/api/npm/npm/:always-auth=true" >> $HOME_DIR/.npmrc
-fi
-
-cd $PROJECT
+cd $APP_DIR
 
 if [ "$(ls -A ./)" ]; then
   echo "#################################"
@@ -32,18 +32,18 @@ if [ "$(ls -A ./)" ]; then
 
 else
 
-  cp ../gulpfile.js ./
-  cp ../webpack.config.js ./
-  cp ../package.json ./
+  cp /gulpfile.js ./
+  cp /webpack.config.js ./
+  cp /package.json ./
 
   mkdir dist
-  cp ../index.html ./dist/
+  cp /index.html ./dist/
   mkdir src
   mkdir src/components
   mkdir src/stores
 
-  touch src/App.jsx
-  cp ../.eslintrc ./src/
+  touch src/App.js
+  cp /.eslintrc ./src/
 
   npm install
 fi

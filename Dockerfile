@@ -1,45 +1,42 @@
 FROM node:5
 
-MAINTAINER Georges Alkhouri <georges.alkhouri@stud.htwk-leipzig.de> 
+MAINTAINER Georges Alkhouri <georges.alkhouri@stud.htwk-leipzig.de>
 
 RUN apt-get update
 RUN apt-get install -y nano
 
 ENV TERM xterm
 
-ENV HOME_DIR /usr/local/node
-ENV PROJECT $HOME_DIR/project
+ENV APP_DIR /app
 
 ENV PW ""
 ENV USER_NAME ""
 ENV EMAIL ""
 
-VOLUME $PROJECT
+VOLUME $APP_DIR
 
-WORKDIR /usr/local/node
+COPY node.sh node.sh
 
-COPY node.sh /usr/local/node/node.sh
+COPY gulpfile.js gulpfile.js
+COPY webpack.config.js webpack.config.js
 
-COPY gulpfile.js /usr/local/node/gulpfile.js
-COPY webpack.config.js /usr/local/node/webpack.config.js
+COPY .eslintrc .eslintrc
+COPY index.html index.html
+COPY package.json package.json
 
-COPY .eslintrc /usr/local/node/.eslintrc
-COPY index.html /usr/local/node/index.html
-COPY package.json /usr/local/node/package.json
-
-RUN npm -g install babel-core@6.9.0
-RUN npm -g install babel-eslint@6.0.4
-RUN npm -g install babel-loader@6.2.4
-RUN npm -g install babel-preset-es2015@6.9.0
-RUN npm -g install babel-preset-react@6.5.0
-RUN npm -g install eslint@2.10.2
-RUN npm -g install eslint-plugin-react@5.1.1
-RUN npm -g install eslint-loader@1.3.0
-RUN npm -g install gulp@3.9.1
-RUN npm -g install gulp-babel@6.1.2
-RUN npm -g install gulp-util@3.0.7
-RUN npm -g install webpack@1.13.1
-RUN npm -g install webpack-dev-server@1.14.1
+RUN npm -g install babel-core
+RUN npm -g install babel-eslint
+RUN npm -g install babel-loader
+RUN npm -g install babel-preset-es2015
+RUN npm -g install babel-preset-react
+RUN npm -g install eslint
+RUN npm -g install eslint-plugin-react
+RUN npm -g install eslint-loader
+RUN npm -g install gulp
+RUN npm -g install gulp-babel
+RUN npm -g install gulp-util
+RUN npm -g install webpack
+RUN npm -g install webpack-dev-server
 
 RUN npm link babel-core
 RUN npm link babel-eslint
@@ -55,4 +52,4 @@ RUN npm link gulp-util
 RUN npm link webpack
 RUN npm link webpack-dev-server
 
-CMD ["/usr/local/node/node.sh"]
+CMD ["/node.sh"]

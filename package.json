@@ -1,6 +1,6 @@
 {
-  "name": "Project name",
-  "version": "0.1",
+  "name": "project-name",
+  "version": "0.1.0",
   "description": "Enter a meaningful description here.",
   "main": "index.js",
   "scripts": {
@@ -10,13 +10,13 @@
   "author": "Enter your author name here.",
   "license": "Choose a free license for your project.",
   "dependencies": {
-    "immutable": "^3.8.1",
-    "material-ui": "^0.14.4",
-    "react": "^0.14.8",
-    "react-bootstrap": "^0.29.4",
-    "react-d3": "^0.4.0",
-    "react-dom": "^0.14.0",
-    "react-file-input": "^0.2.5",
-    "react-tap-event-plugin": "^0.2.0"
+    "immutable": "latest",
+    "material-ui": "latest",
+    "react": "latest",
+    "react-bootstrap": "latest",
+    "react-d3": "latest",
+    "react-dom": "latest",
+    "react-file-input": "latest",
+    "react-tap-event-plugin": "latest"
   }
 }

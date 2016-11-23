@@ -5,6 +5,6 @@ bootstrap:
   #   USER_NAME:
   #   EMAIL:
   ports:
-    - 8081:8080
+    - 8080:8080
   volumes:
-    - /path/to/folder:/usr/local/node/project
+    - path/to/folder:/app
