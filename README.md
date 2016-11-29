@@ -10,7 +10,7 @@ Pull it:
     
 To start the environment, execute:
 
-    docker run -v /path/to/local/project/folder:/usr/local/node/project -p 8080:8080 k00ni/docker-nodejs-environment
+    docker run -v /path/to/local/project/folder:/app -p 8080:8080 k00ni/docker-nodejs-environment
     
 An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
 
@@ -22,15 +22,31 @@ To build this container execute:
 
 and run with a mounted **empty** folder to start a new project:
 
-    docker run -v $PWD/your-project:/usr/local/node/project -p 8080:8080 docker-nodejs-environment
+    docker run -v $PWD/your-project:/app -p 8080:8080 docker-nodejs-environment
 
 An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
 
+### Docker Compose
+
+You can also setup your container with Docker Compose and the corresponding `docker-compose.yml` YAML file. See the provided Docker Compose file in the repository for example.
+
+To build the container use the following command:
+
+```
+docker-compose build
+```
+
+and to start the container use:
+
+```
+docker-compose up
+```
+
 # Start a new project
 
-After starting your Docker container the mounted folder contains some new config files for NPM, Webpack etc., the index HTML file `./dist/index.html` and the main Javascript file `./src/App.jsx`.
+After starting your Docker container the mounted folder contains some new config files for NPM, Webpack etc., the index HTML file `./dist/index.html` and the main Javascript file `./src/App.js`.
 
-Open your browser and go to `http://localhost:8080/webpack-dev-server/` should show the static text 'NodeJS-NPM-ECMA6-Stack running. :)' from index.html. To start coding open the App.jsx file and write e.g.:
+Open your browser and go to `http://localhost:8080/` should show the static text 'NodeJS-NPM-ECMA6-Stack running. :)' from index.html. To start coding open the App.jsx file and write e.g.:
 
 ```
 import React from 'react';
