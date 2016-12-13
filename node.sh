@@ -17,14 +17,7 @@ if [ "$(ls -A ./)" ]; then
   echo "# Already bootstrapped project. #"
   echo "#################################"
 
-  if [ ! -d "./node_modules" ]; then
-    echo "##############################################"
-    echo "# Could not find node modules. Installing... #"
-    echo "##############################################"
-
-    npm install
-  fi
-
+  npm install
 else
 
   cp /gulpfile.js ./
