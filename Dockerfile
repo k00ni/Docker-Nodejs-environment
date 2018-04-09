@@ -1,58 +1,16 @@
-FROM node:5
+FROM node:9
 
-MAINTAINER Georges Alkhouri <georges.alkhouri@stud.htwk-leipzig.de>
+MAINTAINER Simeon Ackermann <simeon.ackermann.1@stud.htwk-leipzig.de>
 
-RUN apt-get update
-RUN apt-get install -y nano
+# app directory
+WORKDIR /usr/src/app
 
-ENV TERM xterm
+# copy default boilerplate
+COPY react-boilerplate/ /app
 
-ENV APP_DIR /app
-ENV CONFIG_DIR /config
+# copy startscript
+COPY node.sh /node.sh
 
-ENV PW ""
-ENV USER_NAME ""
-ENV EMAIL ""
+EXPOSE 8080
 
-VOLUME $APP_DIR
-VOLUME $CONFIG_DIR
-
-COPY node.sh node.sh
-
-COPY gulpfile.js gulpfile.js
-COPY webpack.config.js webpack.config.js
-
-COPY .eslintrc .eslintrc
-COPY index.html index.html
-COPY package.json package.json
-
-RUN npm -g install babel-core \
-    babel-eslint \
-    babel-eslint \
-    babel-loader \
-    babel-preset-es2015 \
-    babel-preset-react \
-    eslint \
-    eslint-plugin-react \
-    eslint-loader \
-    gulp \
-    gulp-babel \
-    gulp-util \
-    webpack \
-    webpack-dev-server
-
-RUN npm link babel-core \
-    babel-eslint \
-    babel-loader \
-    babel-preset-es2015 \
-    babel-preset-react \
-    eslint \
-    eslint-plugin-react \
-    eslint-loader \
-    gulp \
-    gulp-babel \
-    gulp-util \
-    webpack \
-    webpack-dev-server
-
-CMD ["/node.sh"]
+CMD [ "/node.sh" ]

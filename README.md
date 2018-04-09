@@ -2,16 +2,16 @@
 
 ## Pull and run
 
-You can pull from Docker hub and get this going with only a few steps. 
+You can pull from Docker hub and get this going with only a few steps.
 
 Pull it:
 
     docker pull k00ni/docker-nodejs-environment
-    
+
 To start the environment, execute:
 
-    docker run -v /path/to/local/project/folder:/app -p 8080:8080 k00ni/docker-nodejs-environment
-    
+    docker run -v /path/to/local/project/folder:/usr/src/app -p 8080:8080 k00ni/docker-nodejs-environment
+
 An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
 
 ## Build and run yourself
@@ -22,7 +22,7 @@ To build this container execute:
 
 and run with a mounted **empty** folder to start a new project:
 
-    docker run -v $PWD/your-project:/app -p 8080:8080 docker-nodejs-environment
+    docker run -v $PWD/your-project:/usr/src/app -p 8080:8080 docker-nodejs-environment
 
 An existing Webpack-NPM project can be mounted, if the `webpack.config.js` and `package.json` are already created.
 
@@ -44,7 +44,7 @@ docker-compose up
 
 # Start a new project
 
-After starting your Docker container the mounted folder contains some new config files for NPM, Webpack etc., the index HTML file `./dist/index.html` and the main Javascript file `./src/App.js`.
+After starting your Docker container the mounted folder contains some new config files for NPM, Webpack etc., the index HTML file `./dist/index.html` and the main Javascript file `./src/index.js`.
 
 Open your browser and go to `http://localhost:8080/` should show the static text 'NodeJS-NPM-ECMA6-Stack running. :)' from index.html. To start coding open the App.jsx file and write e.g.:
 
@@ -71,4 +71,3 @@ Read the [ReactJS Tutorial](https://facebook.github.io/react/docs/tutorial.html)
 * Webpack - Module bundler
 * RectJS - JavaScript library for building user interfaces
 * ECMA6, Babel - Next generation JavaScript
-* Gulp - Build system
