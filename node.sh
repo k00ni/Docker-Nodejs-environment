@@ -11,4 +11,8 @@ echo "# Install npm dependencies..."
 npm install
 
 echo "# Start webpack server..."
-./node_modules/.bin/webpack-dev-server --config webpack.config.js --host 0.0.0.0 --port 8080 --mode development
+webpack-dev-server \
+  --config webpack.config.js \
+  --host 0.0.0.0 \
+  --port 8080 \
+  --mode development
