@@ -1,39 +1,14 @@
 #!/bin/sh
 
-if [ -f $CONFIG_DIR/.npmrc ]; then
+cd /usr/src/app
 
-  echo "######################"
-  echo "# Found .npmrc file. #"
-  echo "######################"
-
-  cp $CONFIG_DIR/.npmrc $HOME
-  
+if [ ! "$(ls -A ./)" ]; then
+  echo "# Create new Project from Boilerplate"
+  cp -a /app/. /usr/src/app/
 fi
 
-cd $APP_DIR
+echo "# Install npm dependencies..."
+npm install
 
-if [ "$(ls -A ./)" ]; then
-  echo "#################################"
-  echo "# Already bootstrapped project. #"
-  echo "#################################"
-
-  npm install
-else
-
-  cp /gulpfile.js ./
-  cp /webpack.config.js ./
-  cp /package.json ./
-
-  mkdir dist
-  cp /index.html ./dist/
-  mkdir src
-  mkdir src/components
-  mkdir src/stores
-
-  touch src/App.js
-  cp /.eslintrc ./src/
-
-  npm install
-fi
-
-webpack-dev-server --config webpack.config.js --host 0.0.0.0 --port 8080 --watch-poll 1000 --content-base ./dist
+echo "# Start webpack server..."
+./node_modules/.bin/webpack-dev-server --config webpack.config.js --host 0.0.0.0 --port 8080 --mode development

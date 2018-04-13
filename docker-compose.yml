@@ -1,11 +1,9 @@
-bootstrap:
-  build: .
-  # environment:
-  #   PW:
-  #   USER_NAME:
-  #   EMAIL:
-  ports:
-    - 8080:8080
-  volumes:
-    - /path/to/folder:/app
-    - /path/to/.npmrc:/config
+version: "2"
+services:
+  node:
+    build: .
+    #volumes:
+    #  - ../your-app:/usr/src/app
+    ports:
+      - 8080:8080
+    command: "/node.sh"
