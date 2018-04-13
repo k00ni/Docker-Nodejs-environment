@@ -46,22 +46,16 @@ docker-compose up
 
 After starting your Docker container the mounted folder contains some new config files for NPM, Webpack etc., the index HTML file `./dist/index.html` and the main Javascript file `./src/index.js`.
 
-Open your browser and go to `http://localhost:8080/` should show the static text 'NodeJS-NPM-ECMA6-Stack running. :)' from index.html. To start coding open the App.jsx file and write e.g.:
-
-```
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('react')
-);
-
-```
-
-(with empty newline at the end) and save the file. You should see the recompiling process in the console and an automatic reload of the browser because of the hot pulling function of Webpack.
+Open your browser and go to `http://localhost:8080/` should show the text 'My Minimal React Webpack Babel Setup!' from index.js. This is the entry file to start coding with react.
 
 Read the [ReactJS Tutorial](https://facebook.github.io/react/docs/tutorial.html) to learn more.
+
+
+# Build production
+
+To build a production bundle this image contains a build script to create a minified bundle.js with webpack. Its configuration is stored in `webpack.config.production.js`.
+
+To create the build exec into container (`docker exec -it <container-name> bash`) an run `npm run build`. This will create the minified file `./dist/bundle.js`
 
 
 # Default Components

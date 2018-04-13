@@ -1,4 +1,8 @@
+var webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
+  devtool: 'source-map',
   entry: [
     './src/index.js'
   ],
@@ -19,6 +23,14 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new UglifyJSPlugin({
+      sourceMap: true
+    }),
+  ],
   devServer: {
     contentBase: './dist'
   }

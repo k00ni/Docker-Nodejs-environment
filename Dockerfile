@@ -2,6 +2,11 @@ FROM node:9
 
 MAINTAINER Simeon Ackermann <simeon.ackermann.1@stud.htwk-leipzig.de>
 
+# install webpack gobally
+RUN npm install -g webpack \
+    webpack-cli \
+    webpack-dev-server
+
 # app directory
 WORKDIR /usr/src/app
 
